@@ -3,28 +3,23 @@ using System.Collections.Generic;
 
 public class Map 
 {
-    private List<Cell> _cells;
+    public Cell[,] _cells;
     public Map()
     {
-        _cells = new List<Cell>();
+        _cells = new Cell[3,3];
         mapping();
+        draw();
     }
-    public void mapping()
+    public Cell[,] cells
     {
-        for (int x = 0; x < 3; x++)
+        get 
         {
-            // string line = "";
-            for (int y = 0; y < 3; y++)
-            {
-                _cells.Add(new Cell(x, y));
-                // line += $"({x},{y}) ";
-            }
-            // Console.WriteLine(line + "\n");
+            return _cells;
         }
-    }
+    }    
     public bool empty()
     {
-        foreach (Cell c in _cells)
+        foreach (Cell c in cells)
         {
             if (!c.filled)
             {
@@ -32,5 +27,27 @@ public class Map
             }
         }
         return false;
+    }
+    private void mapping()
+    {
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                _cells[x,y] = new Cell(x, y);
+            }
+        }
+    }
+    private void draw()
+    {
+        for (int y = 0; y < 3; y++)
+        {
+            string row = "";
+            for (int x = 0; x < 3; x++)
+            {
+                row += x + "," + y + " ";
+            }
+            Console.WriteLine(row);
+        }
     }
 }
