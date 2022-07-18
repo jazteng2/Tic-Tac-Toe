@@ -38,9 +38,19 @@ public class Map
             }
         }
     }
-    private void draw()
+    public void draw()
     {
         for (int y = 0; y < 3; y++)
+        {
+            string row = "";
+            for (int x = 0; x < 3; x++)
+            {
+                row += cells[x,y].value + " ";
+            }
+            Console.WriteLine(row);
+        }
+
+        /*for (int y = 0; y < 3; y++)
         {
             string row = "";
             for (int x = 0; x < 3; x++)
@@ -48,6 +58,6 @@ public class Map
                 row += x + "," + y + " ";
             }
             Console.WriteLine(row);
-        }
+        */
     }
 }

@@ -3,18 +3,27 @@ using System.Collections.Generic;
 
 public class Player
 {
+    private int _Id;
     private List<Cell> _selected;
-    public bool _turn; 
-    public Player()
+    private bool _turn; 
+    public Player(int Id)
     {
-        _visited = new List<Cell>();
+        _Id = Id;
+        _selected = new List<Cell>();
         _turn = false;
     }     
+    public int Id
+    {
+        get
+        {
+            return _Id;
+        }
+    }
     public List<Cell> selected
     {
         get
         {
-            return _visited;
+            return _selected;
         }
     }    
     public bool turn 
@@ -30,8 +39,8 @@ public class Player
     }
     public void visit(Cell cell)
     {
-        visited.Add(cell);
-    }    
+        _selected.Add(cell);
+    }
     public bool visited(Cell cell)
     {
         return _selected.Contains(cell);
