@@ -48,6 +48,7 @@ public class TTT
     {
         
         string move = Console.ReadLine();
+        bool valid_move = validate(move, m);
         Cell[,] cells = m.cells;
         int x = (int)char.GetNumericValue(move[0]);
         int y = (int)char.GetNumericValue(move[2]);
@@ -65,6 +66,28 @@ public class TTT
             return false;
         }
         return check_winner(p, m);
+    }
+    bool validate(string move, Map m)
+    {
+        if (move == "")
+        {
+            Console.WriteLine("Invalid Move try again");
+            return false;
+        }
+        if (!char.IsNumber(move[0]) || !char.IsNumber(move[2]))
+        {
+            Console.WriteLine("Position x and y must be numeric");
+            return false;
+        }
+        var x = (int)char.GetNumericValue(move[0]);
+        var y = (int)char.GetNumericValue(move[2]);
+        Cell selected = m.cells[x,y];
+        if (selected.filled)
+        {
+            Console.WriteLine("Selected Cell is already used");
+            return false;
+        }
+        return true;
     }
     private void check_turn(Player p1, Player p2)
     {
