@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jared\\source\\repos\\Tic Tac Toe\\Tic Tac Toe.csproj": {}
+    "D:\\repo\\Tic-Tac-Toe-Recursion\\Tic Tac Toe\\Tic Tac Toe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jared\\source\\repos\\Tic Tac Toe\\Tic Tac Toe.csproj": {
+    "D:\\repo\\Tic-Tac-Toe-Recursion\\Tic Tac Toe\\Tic Tac Toe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jared\\source\\repos\\Tic Tac Toe\\Tic Tac Toe.csproj",
+        "projectUniqueName": "D:\\repo\\Tic-Tac-Toe-Recursion\\Tic Tac Toe\\Tic Tac Toe.csproj",
         "projectName": "Tic Tac Toe",
-        "projectPath": "C:\\Users\\jared\\source\\repos\\Tic Tac Toe\\Tic Tac Toe.csproj",
+        "projectPath": "D:\\repo\\Tic-Tac-Toe-Recursion\\Tic Tac Toe\\Tic Tac Toe.csproj",
         "packagesPath": "C:\\Users\\jared\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jared\\source\\repos\\Tic Tac Toe\\obj\\",
+        "outputPath": "D:\\repo\\Tic-Tac-Toe-Recursion\\Tic Tac Toe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jared\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -90,6 +90,7 @@ public class TTT
         if (x > 2 || y > 2 || x < 0 || y < 0)
         {
             Console.WriteLine("Input out of range");
+            return false;
         }
         // Check if cell used
         Cell selected = m.cells[x,y];               
