@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using System.Text.RegularExpressions;
 public class TTT
 {
     public TTT() {}
@@ -9,8 +9,6 @@ public class TTT
         bool result = false;        
         string winner = "";
         check_turn(p1, p2);     
-        // Console.WriteLine("Player 1: " + p1.turn);
-        // Console.WriteLine("Player 2: " + p2.turn);
         
         if (p1.turn)
         {
@@ -33,7 +31,7 @@ public class TTT
             result = action(p2, m);
             if (result == true) // terminate recursion
             {
-                return "Player 1";
+                return "Player 2";
             }
             else if (!m.empty()) // no more moves
             {
@@ -48,11 +46,17 @@ public class TTT
     {
         
         string move = Console.ReadLine();
-        bool valid_move = validate(move, m);
+        while(!validate(move, m))
+        {            
+            Console.WriteLine("Please Try again");
+            move = Console.ReadLine();
+        }
+
         Cell[,] cells = m.cells;
         int x = (int)char.GetNumericValue(move[0]);
         int y = (int)char.GetNumericValue(move[2]);
-        cells[x,y].filled = true;        
+        cells[x,y].filled = true;   
+                           
         p.visit(cells[x, y]);
 
         // refresh map
@@ -69,24 +73,31 @@ public class TTT
     }
     bool validate(string move, Map m)
     {
-        if (move == "")
+        if (move == "" || move is null)
         {
-            Console.WriteLine("Invalid Move try again");
+            Console.WriteLine("Move must not be empty");
             return false;
         }
-        if (!char.IsNumber(move[0]) || !char.IsNumber(move[2]))
+        if (!Regex.IsMatch(move, @"^[0-9],[0-9]$"))
         {
-            Console.WriteLine("Position x and y must be numeric");
+            Console.WriteLine("Invalid Format");
             return false;
-        }
+        }        
+
+        // Range validation
         var x = (int)char.GetNumericValue(move[0]);
         var y = (int)char.GetNumericValue(move[2]);
-        Cell selected = m.cells[x,y];
+        if (x > 2 || y > 2 || x < 0 || y < 0)
+        {
+            Console.WriteLine("Input out of range");
+        }
+        // Check if cell used
+        Cell selected = m.cells[x,y];               
         if (selected.filled)
         {
             Console.WriteLine("Selected Cell is already used");
             return false;
-        }
+        }        
         return true;
     }
     private void check_turn(Player p1, Player p2)
